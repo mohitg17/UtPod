@@ -16,6 +16,8 @@ class Song {
 	static const int MAX_MEMORY = 512;
 
 	public:
+		Song();		
+
 		Song(string title, string artist, int size);
 
 		string getTitle() const
@@ -38,6 +40,7 @@ class Song {
 
 		bool operator >(Song const &rhs);
 		bool operator ==(Song const &rhs);
+		bool operator <(Song const &rhs);
 
 		~Song();
 

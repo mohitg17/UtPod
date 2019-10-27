@@ -17,23 +17,51 @@ Song::Song(string _title, string _artist, int _size) {
 }
 
 bool Song::operator >(Song const &rhs) {
-	if (title.compare(rhs.title) != 0) {
-		return title.compare(rhs.title);
-	} else if (artist.compare(rhs.compare) != 0) {
-		return artist.compare(rhs.artist);
-	} else {
-		return size > rhs.size;
+	int title_diff = title.compare(rhs.title);
+	if (title_diff > 0) {
+		return true;
+	} else if (title_diff < 0) {
+		return false;
 	}
+
+	int artist_diff = artist.compare(rhs.artist);
+	if (artist_diff > 0) {
+		return true;
+	} else if (artist_diff < 0) {
+		return false;
+	}
+
+	if (size > rhs.size) {
+		return true;
+	} else if (size < rhs.size) {
+		return false;
+	} else {
+		return false;
+	} 
 }
 
 bool Song::operator <(Song const &rhs) {
-	if (title.compare(rhs.title) != 0) {
-		return title.compare(rhs.title);
-	} else if (artist.compare(rhs.compare) != 0) {
-		return artist.compare(rhs.artist);
-	} else {
-		return size > rhs.size;
+	int title_diff = title.compare(rhs.title);
+	if (title_diff > 0) {
+		return false;
+	} else if (title_diff < 0) {
+		return true;
 	}
+
+	int artist_diff = artist.compare(rhs.artist);
+	if (artist_diff > 0) {
+		return false;;
+	} else if (artist_diff < 0) {
+		return true;
+	}
+
+	if (size > rhs.size) {
+		return false;
+	} else if (size < rhs.size) {
+		return true;
+	} else {
+		return false;
+	} 
 }
 	
 bool Song::operator ==(Song const &rhs) {
