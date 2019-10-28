@@ -1,7 +1,7 @@
-final: UtPodDriver.o UtPod.o Song.o
-	g++ -otest UtPodDriver.o UtPod.o Song.o
-driver: UtPodDriver.cpp UtPod.h Song.h
-	g++ -c UtPodDriver.cpp
+final: driver.o UtPod.o Song.o
+	g++ -otest driver.o UtPod.o Song.o
+driver: driver.cpp UtPod.h Song.h
+	g++ -c driver.cpp
 UtPod.o: UtPod.cpp UtPod.h Song.h
 	g++ -c UtPod.cpp
 Song.o: Song.cpp Song.h

@@ -8,7 +8,7 @@ using namespace std;
 
 class Song {
 
-	private:
+    private:
 		string title;
 		string artist;
 		int size;
@@ -16,9 +16,9 @@ class Song {
 	static const int MAX_MEMORY = 512;
 
 	public:
-		Song();		
+        Song();
 
-		Song(string title, string artist, int size);
+        Song(string artist, string title, int size);
 
 		string getTitle() const
 			{ return title; }
@@ -37,11 +37,11 @@ class Song {
 
 		void setSize(int s)
 			{ size = s; }
-
+/*
 		bool operator >(Song const &rhs);
 		bool operator ==(Song const &rhs);
 		bool operator <(Song const &rhs);
-
+*/
 		~Song();
 
 };

@@ -4,10 +4,7 @@
 
 using namespace std;
 
-Song::Song() {
-	title = "Untitled";
-	artist = "unknown";
-	size = 128;
+Song::Song(){
 }
 
 Song::Song(string _title, string _artist, int _size) {
@@ -16,6 +13,10 @@ Song::Song(string _title, string _artist, int _size) {
 	size = _size;
 }
 
+Song::~Song(){
+}
+
+/*
 bool Song::operator >(Song const &rhs) {
 	int title_diff = title.compare(rhs.title);
 	if (title_diff > 0) {
@@ -67,3 +68,4 @@ bool Song::operator <(Song const &rhs) {
 bool Song::operator ==(Song const &rhs) {
 	return ((title == rhs.title) && (artist = rhs.artist) && (size == rhs.size));
 }
+*/
