@@ -10,6 +10,7 @@ using namespace std;
      memSize = MAX_MEMORY;
     }
 
+
     UtPod::UtPod(int size) {
      songs = NULL;
      if (size > MAX_MEMORY || size <= 0) {
@@ -19,16 +20,8 @@ using namespace std;
      }
     }
 
-    /* FUNCTION - int addSong
-    * attempts to add a new song to the UtPod
-       o returns a 0 if successful
-       o returns -1 if not enough memory to add the song
-    precondition: s is a valid Song
-    input parms - Song to add
-    output parms - 0 if added sucessfully added, -1 if not enough memory
-    */
-
-    int UtPod::addSong(Song const &s) {
+    
+	int UtPod::addSong(Song const &s) {
      if (s.getSize() < (*this).getRemainingMemory()) {
         SongNode *temp = new SongNode;
         temp->s = s;
@@ -40,13 +33,6 @@ using namespace std;
      }
     }
 
-    /* FUNCTION - int getRemainingMemory
-    *  returns the amount of memory available for adding new songs
-     input parms -
-     output parms -
-    */
-
-    int UtPod::getRemainingMemory() {
      int mem_used = 0;
      SongNode *temp = songs;
      while (temp != NULL) {
@@ -58,7 +44,6 @@ using namespace std;
     }
 
 
-
     void UtPod::showSongList(){
      SongNode *temp = songs;
      while(temp != NULL){
@@ -66,6 +51,22 @@ using namespace std;
         temp = temp->next;
      }
     }
+    
+
+    int removeSong(Song const &s);
+
+
+    void shuffle();
+
+
+    void showSongList();
+
+    
+	void sortSongList();
+
+
+    void clearMemory();
+
 
     /* FUNCTION - int removeSong
     * attempts to remove a song from the UtPod

@@ -7,7 +7,7 @@ using namespace std;
 Song::Song(){
 }
 
-Song::Song(string _title, string _artist, int _size) {
+Song::Song(string _artist, string _title, int _size) {
 	title = _title;
 	artist = _artist;
 	size = _size;
