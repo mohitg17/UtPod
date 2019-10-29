@@ -2,12 +2,16 @@
 #include "Song.h"
 #include <iostream>
 #include <string>
+#include <ctime>
+#include <cstdlib>
 
 using namespace std;
       
     UtPod::UtPod() {
      songs = NULL;
      memSize = MAX_MEMORY;
+     unsigned int currentTime =  (unsigned)time(0);
+     srand(currentTime);  //seed the random number generator
     }
 
 
@@ -18,6 +22,8 @@ using namespace std;
      } else {
         memSize = size;
      }
+     unsigned int currentTime =  (unsigned)time(0);
+     srand(currentTime);  //seed the random number generator
     }
 
     
@@ -33,39 +39,57 @@ using namespace std;
      }
     }
 
-     int mem_used = 0;
-     SongNode *temp = songs;
-     while (temp != NULL) {
-        mem_used += (temp->s).getSize();
-        temp = temp->next;
-     }
-     int remaining_mem = MAX_MEMORY - mem_used;
-     return remaining_mem;
-    }
+    int UtPod::getRemainingMemory() {
+         int mem_used = 0;
+         SongNode *temp = songs;
+         while (temp != NULL) {
+            mem_used += (temp->s).getSize();
+            temp = temp->next;
+         }
+         int remaining_mem = MAX_MEMORY - mem_used;
+         return remaining_mem;
+        }
 
 
     void UtPod::showSongList(){
-     SongNode *temp = songs;
-     while(temp != NULL){
-        cout << (temp->s.getTitle()) << ", " << (temp->s.getArtist()) << ", " << (temp->s.getSize()) << endl;
-        temp = temp->next;
-     }
+        SongNode *temp = songs;
+        while(temp != NULL){
+            cout << (temp->s.getArtist()) << ", " << temp->s.getTitle() << ", " << (temp->s.getSize()) << endl;
+            temp = temp->next;
+        }
     }
     
 
-    int removeSong(Song const &s);
+    void UtPod::shuffle() {
+        SongNode *temp = songs;
+        int numSongs = 0;
+        while(temp != NULL) {
+            numSongs += 1;
+            temp = temp->next;
+        }
+        for(int i = 0; i < numSongs*2; i++) {
+            int random = (rand() % numSongs) + 1;
+            int random2 = (rand() % numSongs) + 1;
+            SongNode *temp = songs;
+            SongNode *temp2 = songs;
+            int songNumber = 1;
+            for(songNumber; songNumber < random; songNumber++) {
+                temp = temp->next;
+            }
+            for(songNumber = 1; songNumber < random2; songNumber++) {
+                temp2 = temp2->next;
+            }
+            SongNode *temp3 = new SongNode;
+            temp3->s = temp->s;
+            temp3->next = temp->next;
 
+            temp->s = temp2->s;
+            temp2->s = temp3->s;
 
-    void shuffle();
+            delete(temp3);
+        }
+    }
 
-
-    void showSongList();
-
-    
-	void sortSongList();
-
-
-    void clearMemory();
 
 
     /* FUNCTION - int removeSong
@@ -85,6 +109,9 @@ using namespace std;
             {
                 nodeFound = true;
                 prev->next = temp->next;
+                if (temp == songs) {
+                    songs = temp->next;
+                }
                 delete(temp);
                 return(0);
             }
@@ -148,5 +175,6 @@ using namespace std;
 
 
     UtPod::~UtPod() {
+        this->clearMemory();
     }
 
