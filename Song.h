@@ -37,11 +37,10 @@ class Song {
 
 		void setSize(int s)
 			{ size = s; }
-/*
+
 		bool operator >(Song const &rhs);
-		bool operator ==(Song const &rhs);
 		bool operator <(Song const &rhs);
-*/
+        bool operator ==(Song const &rhs);
 		~Song();
 
 };

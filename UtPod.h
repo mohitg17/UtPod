@@ -53,10 +53,7 @@ class UtPod
     * removes the first instance of a song that is in the the UtPod multiple times
        o returns 0 if successful
        o returns -1 if nothing is removed
-
-
      input parms -
-
      output parms -
     */
 

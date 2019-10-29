@@ -23,11 +23,8 @@ using namespace std;
     * attempts to add a new song to the UtPod
        o returns a 0 if successful
        o returns -1 if not enough memory to add the song
-
     precondition: s is a valid Song
-
     input parms - Song to add
-
     output parms - 0 if added sucessfully added, -1 if not enough memory
     */
 
@@ -45,9 +42,7 @@ using namespace std;
 
     /* FUNCTION - int getRemainingMemory
     *  returns the amount of memory available for adding new songs
-
      input parms -
-
      output parms -
     */
 
@@ -62,6 +57,8 @@ using namespace std;
      return remaining_mem;
     }
 
+
+
     void UtPod::showSongList(){
      SongNode *temp = songs;
      while(temp != NULL){
@@ -69,6 +66,85 @@ using namespace std;
         temp = temp->next;
      }
     }
+
+    /* FUNCTION - int removeSong
+    * attempts to remove a song from the UtPod
+    * removes the first instance of a song that is in the the UtPod multiple times
+        o returns 0 if successful
+        o returns -1 if nothing is removed
+    input parms -
+    output parms -
+*/
+    int UtPod::removeSong(Song const &song) {
+        bool nodeFound = false;
+        SongNode *temp = songs;
+        SongNode *prev = temp;
+        while(nodeFound == false && temp != NULL){
+            if((Song) song == temp->s)
+            {
+                nodeFound = true;
+                prev->next = temp->next;
+                delete(temp);
+                return(0);
+            }
+            else{
+                prev = temp;
+                temp = temp->next;
+            }
+        }
+        return(-1);
+    }
+
+    /* FUNCTION - void clearMemory
+    * clears all the songs from memory
+        input parms -
+        output parms -
+    */
+    void UtPod::clearMemory(){
+        SongNode *temp = songs;
+        while(temp != NULL){
+            songs = temp->next;
+            delete(temp);
+            temp = songs;
+        }
+    }
+
+    /* FUNCTION - void sortSongList
+    *  sorts the songs in ascending order
+     o will do nothing if there are less than two songs in the current list
+    input parms -
+    output parms -
+    */
+
+    void UtPod::sortSongList(){
+      bool swap = true;
+        while(swap == true) {
+            SongNode *temp = songs;
+            SongNode *prev = songs;
+            SongNode *nxt = songs->next;
+            swap = false;
+            while (nxt != NULL) {
+                if (temp->s < nxt->s) {
+                    prev = temp;
+                    temp = nxt;
+                    nxt = nxt->next;
+                } else {
+                    //head case
+                    if (temp == songs) {
+                        songs = nxt;
+                    }
+                    prev->next = nxt;
+                    temp->next = nxt->next;
+                    nxt->next = temp;
+                    prev = nxt;
+                    nxt = temp->next;
+                    swap = true;
+
+                }
+            }
+        }
+    }
+
 
     UtPod::~UtPod() {
     }
