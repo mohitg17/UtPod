@@ -1,0 +1,79 @@
+TM
+RM
+C
+S
+W
+F
+A
+Billy Joel, Vienna, 7
+S
+W
+F
+W
+S
+W
+R
+Beatles, Hey Jude, 5
+A
+ACDC, TNT, 12 
+A
+Coldplay, Viva la Vida, 11
+A
+Elton John, Your Song, 14
+A
+Post Malone, Circles, 1
+A
+Kanye, On God, 5
+A
+Kanye, On God, 25
+A
+Eric Clapton, Next Time you See her, 4
+A
+Elton John, Honky Cat, 490
+A
+Led Zeppelin, Stairway to Heaven, 6
+A
+Muddy Waters, I'm Your Hoochie Coochie Man, 15
+A
+Eric Clapton, Wonderful Tonight, 8
+A
+Derek and the Dominos, Layla, 3
+A
+Cream, Sunshine of your Love, 10
+W
+R
+ACDC, TNT, 12
+W
+R
+Cream, Sunshine of your Love, 10
+W
+RM
+S
+W
+F
+W
+F
+W
+S
+W
+R
+Elton John, Your Song, 14
+R
+Coldplay, Viva la Vida, 11
+W
+C
+W
+RM
+A
+Harry Styles, Lights Up, 60
+A
+Harry Styles, Lights Up, 60
+A
+Harry Styles, Lights Up, 60
+A
+Beatles, Tomorrow Never Knows, 500
+W
+R
+Harry Styles, Lights Up, 60
+W
+RM

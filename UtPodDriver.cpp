@@ -20,7 +20,7 @@ using namespace std;
 
 int main() {
     string line;
-    UtPod t;
+    UtPod t(1000);
     ifstream mysongs("test.txt");
     if(mysongs.is_open()) {
         while(getline(mysongs, line)) {
@@ -48,15 +48,15 @@ int main() {
                 cout << "Songs have been shuffled" << "\n" << endl;
             }
             if(line == "A") {
-		        string artist;
+		string artist;
                 string title;
                 string size;
-		        int x = 0;
+		int x = 0;
                 getline(mysongs, artist, ',');
                 getline(mysongs, title, ',');
                 getline(mysongs, size, '\n');
-		        stringstream temp(size);
-		        temp >> x;
+		stringstream temp(size);
+		temp >> x;
                 Song s(artist, title, x);
                 int result = t.addSong(s);
                 if (result == 0) {
@@ -69,12 +69,12 @@ int main() {
                 string artist;
                 string title;
                 string size;
-		        int x = 0;
+		int x = 0;
                 getline(mysongs, artist, ',');
                 getline(mysongs, title, ',');
                 getline(mysongs, size, '\n');
-                stringstream temp1(size);
-		        temp1 >> x;
+		stringstream temp1(size);
+		temp1 >> x;
                 Song s(artist, title, x);
                 int result = t.removeSong(s);
                 if (result == 0) {
